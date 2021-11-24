@@ -1,55 +1,62 @@
 import sys
-from ui import ui_index
-import time
-from scripts import audioManager
-from db import dbmanager
-from PyQt5.Qt import QWidget, QApplication, QMainWindow, QThread, QMutex, pyqtSignal
+from utils import audioManager
+from utils import api
+from PyQt5.Qt import QApplication
+from PySide2.QtWidgets import QApplication
+from PySide2.QtUiTools import QUiLoader
 
-
-# aam = audioManager.AutoAudioManager()
-
-# class MainThread(QThread):
-#     def __init__(self):
-#         super().__init__()
-#
-#     def run(self):
-#         cnt=0
-#         while(True):
-#             print(cnt)
-#             cnt+=1
-#             time.sleep(0.5)
 
 class Main():
 
     def __init__(self):
         self.app = QApplication(sys.argv)
-        self.MainWindow = QMainWindow()
-        self.ui = ui_index.Ui_MainWindow()
-        self.aam = None
+        # self.MainWindow = QMainWindow()
+        self.ui = QUiLoader().load('ui/index.ui')
+        self.ui.show()
+        # self.ar = audioManager.AudioRecorder()
+        self.ap = audioManager.AudioPlayer()
 
-        self.ui.setupUi(self.MainWindow)
-        self.MainWindow.show()
+        # self.ui.setupUi(self.MainWindow)
+        # self.MainWindow.show()
 
         self.__eventsBinding()
 
         sys.exit(self.app.exec_())
 
     def __eventsBinding(self):
-        self.ui.pushButton.clicked.connect(self.__pushEvent)
+        # self.ui.pushButton_1.clicked.connect(self.__recordStart)
+        # self.ui.pushButton_2.clicked.connect(self.__recordEnd)
+        # self.ui.pushButton_3.clicked.connect(self.__saySentence)
+        pass
 
-    def __pushEvent(self):
-        if (self.aam is not None):
-            self.aam.stopRecord()
 
 
     def __recordStart(self):
-        if (self.aam is None):
-            self.aam = audioManager.AutoAudioManager()
+        # if (self.ar is None):
+        self.ar = audioManager.AudioRecorder(lambda :print('callback'))
+        self.ar.start()
+
+    def __recordEnd(self):
+        if (self.ar is not None):
+            self.ar.stopRecord()
+            self.ap.start()
+
+    def __saySentence(self):
+        api.text_to_speech('哈哈哈哈哈哈哈哈哈哈哈')
+
+
+
 
 
 if __name__ == '__main__':
-    Main()
+    test = Main()
+
+    # res = api.speech_to_text_baidu(if_microphone=True)
+    # res = api.speech_to_text_baidu('cache/test.wav', if_microphone=False)
+    # res = api.speech_to_text_cmu('cache/test.wav', if_microphone=False)
+    # print(res)
     # MainWindow.show()
+    # obtain audio from the microphone
 
 
     # 测试数据库链接
@@ -59,9 +66,10 @@ if __name__ == '__main__':
     # print(res.content.decode('utf-8'))
 
     # 测试音频输入输出
-    # am = audioManager.AudioManager()
+    # am = audioManager.AutoAudioManager()
+    # am.start()
     # am.record_audio('cache/test.wav',5)
     # am.play_audio('cache/test.wav')
-    # am.autoRecord()
+
 
 
