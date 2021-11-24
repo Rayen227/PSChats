@@ -1,0 +1,35 @@
+<RCC>
+  <qresource prefix="open">
+    <file>img/open/Chat_open_unselected.png</file>
+    <file>img/open/Collect_open_unselected.png</file>
+    <file>img/open/Rank_open_unselected.png</file>
+    <file>img/open/Setting_open_unselected.png</file>
+    <file>img/open/Study_open_unselected.png</file>
+  </qresource>
+  <qresource prefix="frame">
+    <file>img/Frame/close.png</file>
+    <file>img/Frame/minimize.png</file>
+  </qresource>
+  <qresource prefix="chatting">
+    <file>img/Chatting/exchange.png</file>
+    <file>img/Chatting/microphone.png</file>
+    <file>img/Chatting/smile.png</file>
+    <file>img/Chatting/turnleft.png</file>
+    <file>img/Chatting/turnright.png</file>
+  </qresource>
+  <qresource prefix="close">
+    <file>img/close/Chat_close_unselected.png</file>
+    <file>img/close/Collect_close_unselected.png</file>
+    <file>img/close/Rank_close_unselect.png</file>
+    <file>img/close/Setting_close_unselected.png</file>
+    <file>img/close/Study_close_unselected.png</file>
+  </qresource>
+  <qresource prefix="selected">
+    <file>img/selected/Chat_selected.png</file>
+    <file>img/selected/Collect_selected.png</file>
+    <file>img/selected/Rank_selected.png</file>
+    <file>img/selected/resource.qrc</file>
+    <file>img/selected/Setting_selected.png</file>
+    <file>img/selected/Study_selected.png</file>
+  </qresource>
+</RCC>
