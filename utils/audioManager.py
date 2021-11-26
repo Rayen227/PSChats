@@ -11,7 +11,7 @@ FAIL = 1
 
 class AudioRecorder(QThread):
 
-    def __init__(self,callback):
+    def __init__(self):
         super().__init__()
         self.CHUNK = 1024  # 每个缓冲区的帧数
         self.FORMAT = pyaudio.paInt16  # 采样位数
@@ -20,7 +20,7 @@ class AudioRecorder(QThread):
         self.recordOn = True  # 是否录音
         self.delay = 0.05
         self.wave_out_path = 'cache/cache01.wav'
-        self.callback = callback
+        self.callback = lambda :print('callback missing ...')
         self.p = pyaudio.PyAudio()  # 实例化对象
         self.stream = self.p.open(format=self.FORMAT,
                         channels=self.CHANNELS,
@@ -31,6 +31,9 @@ class AudioRecorder(QThread):
         self.wf.setnchannels(self.CHANNELS)  # 声道设置
         self.wf.setsampwidth(self.p.get_sample_size(self.FORMAT))  # 采样位数设置
         self.wf.setframerate(self.RATE)  # 采样频率设置
+
+    def setCallback(self,callback):
+        self.callback=callback
 
     def stopRecord(self):
         self.recordOn = False

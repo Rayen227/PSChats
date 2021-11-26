@@ -39,7 +39,7 @@ def _get_file_content(file_name):
     return speech.raw_data
 
 
-def speech_to_text_baidu(audio_path: str = "cache02.wav", if_microphone: bool = True):
+def speech_to_text_baidu(audio_path: str = "cache01.wav", if_microphone: bool = True):
     # https://cloud.baidu.com/product/speech 申请api
     app_id = "25222495"
     api_key = "A9LMCcsxzaUhi55lvWycuPt3"

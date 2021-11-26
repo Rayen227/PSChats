@@ -6,13 +6,20 @@
     <file>img/open/Setting_open_unselected.png</file>
     <file>img/open/Study_open_unselected.png</file>
   </qresource>
+  <qresource prefix="collect">
+    <file>img/Collect/Collect_selected.png</file>
+    <file>img/Collect/Collect_unselected.png</file>
+    <file>img/Collect/search.png</file>
+  </qresource>
   <qresource prefix="frame">
     <file>img/Frame/close.png</file>
     <file>img/Frame/minimize.png</file>
   </qresource>
   <qresource prefix="chatting">
-    <file>img/Chatting/exchange.png</file>
+    <file>img/Chatting/type.png</file>
     <file>img/Chatting/microphone.png</file>
+    <file>img/Chatting/microphone2.png</file>
+    <file>img/Chatting/exchange.png</file>
     <file>img/Chatting/smile.png</file>
     <file>img/Chatting/turnleft.png</file>
     <file>img/Chatting/turnright.png</file>
